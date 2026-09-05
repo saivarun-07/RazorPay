@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ledgerly, a grounded financial data assistant"
+    />
+    <title>Ledgerly | Grounded finance answers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">L</span><span>ledgerly</span>
+        </div>
+        <div class="workspace-switcher">
+          <span class="workspace-dot"></span><span>Acme Finance</span
+          ><span class="chevron">⌄</span>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-item active" href="#chat"
+            ><span class="nav-icon">◌</span>Ask Ledgerly</a
+          >
+          <a class="nav-item" href="#sources"
+            ><span class="nav-icon">⌁</span>Data sources</a
+          >
+          <a class="nav-item" href="#activity"
+            ><span class="nav-icon">◷</span>Activity</a
+          >
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="connection-card">
+            <div class="connection-head">
+              <span class="pulse"></span><span>Workbook connected</span
+              ><span class="more">•••</span>
+            </div>
+            <div class="connection-meta">Excel workbook · uploaded</div>
+            <div class="connection-sync">Synced 2 min ago <span>↗</span></div>
+          </div>
+          <a class="nav-item" href="#settings"
+            ><span class="nav-icon">⚙</span>Settings</a
+          >
+          <div class="profile">
+            <span class="avatar">AK</span
+            ><span><strong>Arjun Kapoor</strong><small>Owner</small></span
+            ><span class="chevron">⌄</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel" id="chat">
+        <header class="topbar">
+          <div class="breadcrumbs">
+            <span>Ask Ledgerly</span><span class="slash">/</span
+            ><span class="muted">New question</span>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" aria-label="Notifications">
+              ♧<span class="notification-dot"></span></button
+            ><button class="help-button">?</button>
+          </div>
+        </header>
+
+        <div class="content-grid">
+          <section class="conversation" aria-label="Ledger conversation">
+            <div class="conversation-heading">
+              <div>
+                <p class="eyebrow">Grounded finance assistant</p>
+                <h1>Your books, answered.</h1>
+                <p class="subheading">
+                  Ask a question. Get a sourced answer from your imported
+                  workbook sheets.
+                </p>
+              </div>
+              <button class="new-question" id="newQuestion">
+                <span>＋</span> New question
+              </button>
+            </div>
+
+            <div class="thread" id="thread">
+              <div class="message user-message">
+                <div class="message-avatar user-avatar">AK</div>
+                <div class="message-body">
+                  <div class="message-meta">
+                    <strong>You</strong><span>Just now</span>
+                  </div>
+                  <p>
+                    How much did we spend on software subscriptions in Q2, and
+                    how does that compare to Q1?
+                  </p>
+                </div>
+              </div>
+              <div class="message assistant-message pending-message">
+                <div class="message-avatar assistant-avatar">✦</div>
+                <div class="message-body">
+                  <div class="message-meta">
+                    <strong>Ledgerly</strong
+                    ><span
+                      >Just now ·
+                      <span class="verified"
+                        >✓ Fetching workbook data</span
+                      ></span
+                    >
+                  </div>
+                  <p>
+                    Fetching the relevant rows from your imported workbook...
+                  </p>
+                  <div class="evidence-card">
+                    <div class="evidence-header">
+                      <div>
+                        <span class="evidence-icon">▤</span
+                        ><strong>Fetching data</strong>
+                      </div>
+                      <span class="row-count">In progress</span>
+                    </div>
+                    <div class="evidence-footer">
+                      <span>Source: <strong>Excel workbook</strong></span>
+                      <span class="copy-button">Reading rows</span>
+                    </div>
+                  </div>
+                  <div class="guardrail">
+                    <span>◈</span> No estimates used. The assistant will not
+                    invent financial values.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="composer-wrap">
+              <div class="suggestions">
+                <button class="suggestion">
+                  What was our burn rate last month? <span>→</span></button
+                ><button class="suggestion">
+                  Show outstanding invoices <span>→</span></button
+                ><button class="suggestion">
+                  Compare gross margin YoY <span>→</span>
+                </button>
+              </div>
+              <form class="composer" id="composer">
+                <textarea
+                  id="questionInput"
+                  rows="1"
+                  placeholder="Ask about your financial data..."
+                ></textarea
+                ><button class="send-button" aria-label="Send question">
+                  ↑
+                </button>
+              </form>
+              <div class="composer-foot">
+                <span>Enter to send · Shift + Enter for a new line</span
+                ><span
+                  ><span class="secure-dot"></span>Answers use workbook rows
+                  only</span
+                >
+              </div>
+            </div>
+          </section>
+
+          <aside
+            class="inspector"
+            aria-label="Conversation context and sources"
+          >
+            <div class="inspector-section context-section">
+              <div class="section-title">
+                <span>Session context</span><span class="live-pill">LIVE</span>
+              </div>
+              <div class="context-summary">
+                <span class="summary-icon">✦</span>
+                <p>
+                  This session is about <strong>Q2 software spend</strong> and
+                  its quarter-over-quarter change.
+                </p>
+              </div>
+              <div class="context-note">
+                <span>i</span
+                ><span
+                  >Only a summary of this session is carried forward. Previous
+                  sessions are never included.</span
+                >
+              </div>
+              <button class="clear-button" id="clearSession">
+                Clear session context <span>↗</span>
+              </button>
+            </div>
+            <div class="inspector-section">
+              <div class="section-title">
+                <span>Excel sources</span
+                ><button
+                  class="add-source"
+                  id="addSource"
+                  aria-label="Add Excel source"
+                >
+                  ＋
+                </button>
+              </div>
+              <div class="source-item" id="sidebarSourceList">
+                <span class="db-icon">▣</span>
+                <div>
+                  <strong>Q2 finance ledger.xlsx</strong
+                  ><small>Excel · 6 sheets</small>
+                </div>
+                <span class="source-status"></span>
+              </div>
+              <button class="outline-button" id="manageSources">
+                Manage workbooks <span>→</span>
+              </button>
+            </div>
+            <div class="inspector-section model-section">
+              <div class="section-title">
+                <span>Reasoning model</span
+                ><span class="api-badge">GROQ API</span>
+              </div>
+              <div class="model-select">
+                <span class="model-orb">✦</span>
+                <div>
+                  <strong>GPT OSS 20B</strong><small>openai/gpt-oss-20b</small>
+                </div>
+                <span class="chevron">⌄</span>
+              </div>
+              <p class="model-note">
+                Imported sheet rows are the only allowed source for financial
+                values. No database or API is required.
+              </p>
+            </div>
+            <div class="audit-line">
+              <span>⌁</span> Audit log enabled
+              <span class="audit-check">✓</span>
+            </div>
+          </aside>
+        </div>
+        <section
+          class="view-panel"
+          id="sourcesView"
+          aria-label="Excel data sources"
+        >
+          <div class="view-heading">
+            <div>
+              <p class="eyebrow">Workbook control center</p>
+              <h1>Excel sources</h1>
+              <p class="subheading">
+                Upload the sheets Ledgerly is allowed to query for financial
+                answers.
+              </p>
+            </div>
+            <button class="new-question" id="sourcesUpload">
+              <span>＋</span> Add workbook
+            </button>
+          </div>
+          <div class="sources-grid" id="workbookList">
+            <div
+              class="workbook-card"
+              data-workbook-name="Q2 finance ledger.xlsx"
+            >
+              <div class="workbook-card-top">
+                <span class="file-icon">▦</span
+                ><span class="source-status"></span>
+              </div>
+              <h2>Q2 finance ledger.xlsx</h2>
+              <p>Uploaded today · 6 sheets · 14 transaction rows</p>
+              <div class="sheet-list">
+                <span>transactions</span><span>invoices</span
+                ><span>payroll</span><span>accounts</span><span>budgets</span
+                ><span>projections</span>
+              </div>
+              <div class="workbook-footer">
+                <span>Synced 2 min ago</span
+                ><button class="copy-button remove-workbook">Remove</button>
+              </div>
+            </div>
+            <div class="upload-card" id="uploadCard">
+              <span class="upload-icon">↑</span>
+              <h2>Upload another workbook</h2>
+              <p>Supported formats: `.xlsx`, `.xls`, and `.csv`</p>
+              <button class="outline-button">Choose file <span>→</span></button>
+            </div>
+          </div>
+          <div class="source-rule">
+            <span>◈</span>
+            <div>
+              <strong>Source boundary</strong>
+              <p>
+                Questions are answered only from rows imported from these
+                workbooks. When a sheet does not contain enough evidence,
+                Ledgerly says so.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="view-panel"
+          id="activityView"
+          aria-label="Activity and audit log"
+        >
+          <div class="view-heading">
+            <div>
+              <p class="eyebrow">Traceability</p>
+              <h1>Activity</h1>
+              <p class="subheading">
+                A transparent record of workbook imports, queries, and session
+                context changes.
+              </p>
+            </div>
+            <span class="audit-state"
+              ><span class="source-status"></span> Audit log enabled</span
+            >
+          </div>
+          <div class="activity-list">
+            <div class="activity-row">
+              <span class="activity-icon green-icon">✓</span>
+              <div>
+                <strong>Workbook imported</strong>
+                <p>Q2 finance ledger.xlsx · 6 sheets · 14 transaction rows</p>
+              </div>
+              <time>2 min ago</time>
+            </div>
+            <div class="activity-row">
+              <span class="activity-icon">⌘</span>
+              <div>
+                <strong>SQL query executed</strong>
+                <p>transactions sheet · 32 matching rows returned</p>
+              </div>
+              <time>3 min ago</time>
+            </div>
+            <div class="activity-row">
+              <span class="activity-icon">✦</span>
+              <div>
+                <strong>Answer generated</strong>
+                <p>
+                  Q2 software spend compared with Q1 · verified from workbook
+                </p>
+              </div>
+              <time>3 min ago</time>
+            </div>
+            <div class="activity-row">
+              <span class="activity-icon">↻</span>
+              <div>
+                <strong>Session summary updated</strong>
+                <p>Only the current session summary was carried forward</p>
+              </div>
+              <time>4 min ago</time>
+            </div>
+          </div>
+        </section>
+        <section class="view-panel" id="settingsView" aria-label="Settings">
+          <div class="view-heading">
+            <div>
+              <p class="eyebrow">Workspace preferences</p>
+              <h1>Settings</h1>
+              <p class="subheading">
+                Control how Ledgerly behaves in this workspace.
+              </p>
+            </div>
+          </div>
+          <div class="settings-list">
+            <label class="setting-row"
+              ><span
+                ><strong>Grounded answers only</strong
+                ><small
+                  >Use imported workbook rows for financial values.</small
+                ></span
+              ><input type="checkbox" checked id="groundedSetting"
+            /></label>
+            <label class="setting-row"
+              ><span
+                ><strong>Audit activity</strong
+                ><small
+                  >Record imports, queries, and session changes.</small
+                ></span
+              ><input type="checkbox" checked id="auditSetting"
+            /></label>
+            <button class="outline-button" id="saveSettings">
+              Save preferences <span>✓</span>
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <input id="sourceInput" type="file" accept=".xlsx,.xls,.csv" hidden />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

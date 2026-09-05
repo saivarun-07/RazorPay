@@ -7,7 +7,7 @@ The UI is designed for a backend that:
 - imports Excel workbook sheets into a server-side tabular representation;
 - generates read-only SQL against imported sheet rows;
 - executes SQL and returns rows as evidence;
-- asks `openai/gpt-oss-20b` through Groq to explain only those returned values;
+- asks `openai/gpt-oss-120b` through Groq to explain only those returned values;
 - stores a summary of the current session and injects only that summary into the next prompt;
 - keeps previous sessions out of the active context.
 

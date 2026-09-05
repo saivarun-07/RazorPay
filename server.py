@@ -14,7 +14,7 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).parent
 DATABASE = sqlite3.connect(":memory:", check_same_thread=False)
 DATABASE.row_factory = sqlite3.Row
-MODEL = "openai/gpt-oss-20b"
+MODEL = "openai/gpt-oss-120b"
 WORKBOOKS = []
 ACTIVITY = []
 

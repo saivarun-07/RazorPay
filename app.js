@@ -283,7 +283,7 @@ document.querySelector(".icon-button").addEventListener("click", () => {
   );
 });
 document.querySelector(".model-select").addEventListener("click", () => {
-  showToast("GPT OSS 20B is the active reasoning model");
+  showToast("GPT OSS 120B is the active reasoning model");
 });
 const groundedSetting = document.querySelector("#groundedSetting");
 const auditSetting = document.querySelector("#auditSetting");

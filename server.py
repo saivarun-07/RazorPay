@@ -862,10 +862,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(400, {"error": "Workbook name is required"})
 
             workbook = next((item for item in WORKBOOKS if item["name"] == name), None)
-            if workbook is None:
-                return self._send(404, {"error": "Workbook not found"})
-
-            for table in workbook.get("tables", []):
+            tables = workbook.get("tables", []) if workbook else payload.get("tables", [])
+            for table in tables:
                 DATABASE.execute(f'DROP TABLE IF EXISTS "{safe_table_name(table)}"')
             DATABASE.commit()
             WORKBOOKS[:] = [item for item in WORKBOOKS if item["name"] != name]

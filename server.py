@@ -879,5 +879,7 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("Ledgerly API listening on http://localhost:8000")
-    ThreadingHTTPServer(("localhost", 8000), Handler).serve_forever()
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", "8000"))
+    print(f"Ledgerly API listening on http://{host}:{port}")
+    ThreadingHTTPServer((host, port), Handler).serve_forever()

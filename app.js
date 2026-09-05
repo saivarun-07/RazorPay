@@ -12,7 +12,10 @@ const workbookList = document.querySelector("#workbookList");
 const sidebarSourceList = document.querySelector("#sidebarSourceList");
 const uploadCard = document.querySelector("#uploadCard");
 const activityList = document.querySelector(".activity-list");
-const apiBase = window.location.port === "8000" ? "" : "http://localhost:8000";
+const apiBase =
+  window.location.hostname === "localhost" && window.location.port !== "8000"
+    ? "http://localhost:8000"
+    : "";
 let workbooks = [];
 let activity = [];
 let sessionSummary = "Q2 software spend and its quarter-over-quarter change.";
